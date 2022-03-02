@@ -1,0 +1,176 @@
+<h4>Product Component</h4>
+<div class="container">
+  <table class="table table-bordered table-striped">
+    <tbody>
+      <tr>
+        <td>
+          <div class="form-group" [setColor]="'green'">
+            <label>Product Row Id</label>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="product.ProductRowId"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="form-group">
+            <label>Product Id</label>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="product.ProductId"
+            />
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="form-group">
+            <label>Product Name</label>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="product.ProductName"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="form-group">
+            <label>Category Name</label>
+            <app-select-ui [DataSource]="categories"
+               (onValueSelected)="onCatNameReceived($event)"></app-select-ui>
+            <!-- <select
+              type="text"
+              class="form-control"
+              [(ngModel)]="product.CategoryName"
+            >
+              <option>Select Category Name</option>
+              <option *ngFor="let cat of categories" [value]="cat">
+                {{cat}}
+              </option>
+            </select> -->
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="form-group">
+            <label>Manufacture</label>
+            <app-select-ui [DataSource]="manufacturers" (onValueSelected)="onManufacturerReceived($event)" ></app-select-ui>
+            <!-- <select
+              type="text"
+              class="form-control"
+              [(ngModel)]="product.Manufacturer"
+            >
+              <option>Select Manyfacturer Name</option>
+              <option *ngFor="let man of manufacturers" [value]="man">
+                {{man}}
+              </option>
+            </select> -->
+          </div>
+        </td>
+        <td>
+          <div class="form-group">
+            <label>Description</label>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="product.Description"
+            />
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <div class="form-group">
+            <label>Base Price</label>
+            <input
+              type="text" required pattern="" minlength="" maxlength=""
+              class="form-control"
+              [(ngModel)]="product.BasePrice"
+            />
+          </div>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="2">
+          <div class="btn-group-lg">
+            <input
+              type="button"
+              value="New"
+              class="btn btn-primary"
+              (click)="clear()"
+            />
+            <input
+              type="button"
+              value="Save"
+              class="btn btn-success"
+              (click)="save()"
+            />
+          </div>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+  <br />
+  <div>
+    <table class="table table-bordered table-striped">
+       <tbody>
+         <tr>
+           <td>
+             <input type="radio" name="r" (click)="color='red'">Red
+           </td>
+           <td>
+            <input type="radio" name="r" (click)="color='green'">Green
+          </td>
+          <td>
+            <input type="radio" name="r" (click)="color='blue'">Blue
+          </td>
+         </tr>
+       </tbody>
+    </table>
+    <!--The PIPE that will convert the array into JSON String-->
+    <!-- {{products|json}} -->
+    <!-- <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Product Row Id</th>
+          <th>Product Id</th>
+          <th>Product Name</th>
+          <th>Category Name</th>
+          <th>Manufacturer</th>
+          <th>Description</th>
+          <th>Base Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let prd of products" (click)="getselectedproduct(prd)">
+          <td>{{prd.ProductRowId}}</td>
+          <td>{{prd.ProductId}}</td>
+          <td>{{prd.ProductName}}</td>
+          <td>{{prd.CategoryName}}</td>
+          <td>{{prd.Manufacturer}}</td>
+          <td>{{prd.Description}}</td>
+          <td>{{prd.BasePrice}}</td>
+        </tr>
+      </tbody>
+    </table> -->
+
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+           <th *ngFor="let col of columnHeaders"> {{col}}</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let prd of products" (click)="getselectedproduct(prd)"
+           [setColor]="color">
+             <td *ngFor="let col of columnHeaders">{{prd[col]}}</td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

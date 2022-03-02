@@ -1,0 +1,36 @@
+<h3>The Reactive Forms Validation in Angular</h3>
+<div class="container">
+  <!--Bind the form tag with frmProduct-->
+  <form [formGroup]="frmProduct" (ngSubmit)="save()">
+    <div class="form-group" >
+      <label>Product Row Id</label>
+      <!---Set the formControlName to the key of FormControl created for FormGroup Constructor-->
+      <input
+        type="text"
+        class="form-control"
+        formControlName="ProductRowId"
+      />
+      <!--Evaluate Errors -->
+      <div class="alert alert-danger" *ngIf="frmProduct.controls['ProductRowId'].dirty&&!frmProduct.controls['ProductRowId'].valid">
+          <p *ngIf="frmProduct.controls['ProductRowId'].errors['required']">Product Row Id is MUST</p>
+          <p *ngIf="frmProduct.controls['ProductRowId'].errors['pattern']">Product Row Id is MUST be Numeric</p>
+          <p *ngIf="frmProduct.controls['ProductRowId'].errors['minlength']">Product Row Id is MUST be 2 digits min length</p>
+          <p *ngIf="frmProduct.controls['ProductRowId'].errors['maxlength']">Product Row Id is Can be 8 digits max length</p>
+          <p *ngIf="!frmProduct.controls['ProductRowId'].errors['even']">Product Row Id MUST be even</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Product Id</label>
+      <input type="text" class="form-control"
+      formControlName="ProductId"/>
+    </div>
+    <div class="form-group">
+      <input type="reset" value="Clear" class="btn btn-warning">
+      <input type="submit" value="Save" [disabled]="!frmProduct.valid"class="btn btn-success">
+    </div>
+  </form>
+  <hr/>
+  <strong>
+    {{products|json}}
+  </strong>
+</div>

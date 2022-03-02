@@ -1,0 +1,62 @@
+
+&&&&&&&&&&TYpescript&&&&&&&&&&&&&&&&
+
+dev dependacy-
+npm install --save-dev[package-name]
+npm indtall --save[package-name]
+******cmd to create package.json****
+npm init -y/npm init
+*********globally install*************
+npm install -g [pakage name]
+npm install typescript
+tsc .\pathname.ts -out destinationpathname.js
+tsc .\pathname.ts
+tsc .\pathname.ts --watch
+----------------------------------------
+########Angular#################
+
+npm i -g @angular/cli
+ng new my-app
+cd my-app
+ng serve --open
+ng help
+ng serve
+npm i bootstrap
+npm i jquery
+ng serve
+
+--------------------------------------------------------------------------------
+PriyankaP1208
+
+https://js.devexpress.com/Demos/WidgetsGallery/Demo/DataGrid/Overview/Angular/Light/
+
+How to Create Sortable Grid Component in Angular? - 01 | Reusable table sort component
+%%%%%%%%%%%
+If not select rounting cmd:ng generate module app-routing --flat --module=app
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Angular 8 Searching , Sorting & Pagination | Fetch & Display Json Data into a Table
+
+Advance tutorial Angular sorting data sorting of id, age, name ascending descending order angular 9
+How to create Sortable Grid Component in Angular? - 02 | Reusable table sort component
+
+Angular Dynamic DataTable
+
+
+######################################################################
+
+ng generate component component_name/ng g c component_name
+
+#####################################################################
+to create module:module is big and complex functinality:ng g m module_name
+
+If want to create component under module :ng g module_name/component_name
+want to generate class: ng generate class class_name
+
+_______________________________________________________________________________________________________________
+
+
+
+
+
+
